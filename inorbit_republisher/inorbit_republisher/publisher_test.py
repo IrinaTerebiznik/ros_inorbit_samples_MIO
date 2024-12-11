@@ -1,5 +1,5 @@
 #This test aims to verify that "republisher.py" file can act like a publisher node
-#Message string  choosen based on an awesome beetlejuice song, i am not an alcoholic nor any kind.
+#Message string  was choosen based on an awesome beetlejuice song, i am not an alcoholic nor any kind.
 import rclpy
 import pytest
 from std_msgs.msg import String
