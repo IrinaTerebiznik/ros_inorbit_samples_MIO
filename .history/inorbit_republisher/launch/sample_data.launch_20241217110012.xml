@@ -1,0 +1,8 @@
+<launch>
+  <!-- Primer nodo: inorbit_republisher -->
+  <node name="inorbit_republisher" pkg="inorbit_republisher" exec="republisher">
+    <param name="config" value="ros2_ws/src/inorbit_republisher/test/sample_data/example.yaml" />
+  </node>
+  <!-- Segundo nodo: rosbag2 player -->
+ <node pkg="rosbag2" executable="play" name="player" output="screen" args="-l $(find inorbit_republisher)/harcodedRosbag/rosbag2_2-24_12_13-19_33_34_0.db3"/>
+ </launch>

@@ -5,5 +5,5 @@
   </node>
 
   <!-- Segundo nodo: rosbag2 player -->
-  <node pkg="rosbag2" executable="play" name="player" output="screen" args="-l /root/ros2_ws/src/inorbit_republisher/test/sample_data/hardcodedRosbag/rosbag2_2024_12_13-19_33_34_0.db3"/>
+  <node pkg="rosbag2" exec="play" name="player" output="screen" args="/root/ros2_ws/src/inorbit_republisher/test/sample_data/hardcodedRosbag/rosbag2_2024_12_13-19_33_34_0.db3"/>
 </launch>
