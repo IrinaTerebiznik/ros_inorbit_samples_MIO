@@ -21,10 +21,12 @@ topics:      /my_magnetic_field   10 msgs    : sensor_msgs/MagneticField
 To validate the node works launch the sample by using the ``sample_data.launch`` launch file and look at ``out`` topic: ``rostopic echo /inorbit/custom_data/0``.
 
 ```bash
-. ~/catkin_ws/install/setup.zsh
+. ~/catkin_ws/devel/setup.zsh
+cd ~/catkin_ws/src/inorbit_republisher/test/sample_data
 roslaunch sample_data.launch
 # On a different terminal windows
-$ rostopic echo /inorbit/custom_data/0
+source /opt/ros/noetic/setup.bash
+$ rostopic echo my_temperature
 data: "my_temperature=41.0"
 ---
 data: "my_magnetic_field_x=1.4"
