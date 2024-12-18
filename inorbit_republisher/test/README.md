@@ -24,7 +24,7 @@ To validate the node works launch the sample by using the ``sample_data.launch.x
 
 ```bash
 cd ros2_ws/src
-colcon build --packages-select inorbit_republisher --symlink-instal
+colcon build --packages-select inorbit_republisher --symlink-install
 source install/setup.bash
 cd
 ros2 launch inorbit_republisher sample_data.launch.xml
