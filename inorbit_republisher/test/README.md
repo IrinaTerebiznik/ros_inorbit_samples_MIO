@@ -1,60 +1,50 @@
-1. A. generar nuestro propio rosbag, para eso:
-    ros2 bag record /my_magnetic_field /my_temperature
-    B. en otro tab corremos el archivo fake_sensor_sample_rep-pu:
-        cd ros2_ws/src
-        colcon build --packages-select inorbit_republisher --symlink-install
-        source /opt/ros/humble/setup.bash
-        cd ros2_ws/src/inorbit_republisher/inorbit_republisher
-        ros2 run inorbit_republisher fake_sensor_sample_rep --ros-args -p config:="/root/ros2_ws/src/inorbit_republisher/config/example.yaml"
-    NO ME ENCUENTRA EL EJECUTABLE --> edite republisher.py para que publique lo que YO quiera.... y me hago mi rosbag
-    usando ros2 bag record /my_magnetic_field /my_temperature
-    como hice el ros2 bag recordie desde ros2_ws/src, lo movi a donde queria con mv "file" path
-2. Corremos el package: 
-        primeor hay que buildearlo...
-        cd ros2_ws/src
-        colcon build --packages-select inorbit_republisher --symlink-instal
-        source install/setup.bash
-    luego, coror el file
-        cd ros2_ws/src/inorbit_republisher/test/sample_data
-        ros2 launch inorbit_republisher sample_data.launch.xml
- Segun ros2, debe estar en la crpeta de luinch.
- Igualmente no me lo reconoce. Pero si corro ros2 launch inorbit_republisher sample_data.launch SI LO RECONOCE:
+# Sample data for testing
 
-3. Abro otra terminal:
-        cd ros2_ws/src/inorbit_republisher/test/sample_data
-        source /opt/ros/humble/setup.bash
-        ros2 topic echo my_temperature
+A very simple ``rosbag`` with hardcoded data for smoke testing the transformer node.
 
+```bash
+$root@7c94d2cf9659:~# ros2 bag info ros2_ws/src/inorbit_republisher/test/sample_data/hardcodedRosbag/rosbag2_2024_12_13-19_33_34_0.db3
 
-Si me tira errores wtf: vuelvo a copiar mi file en root/ros2_ws/src/install/inorbit_republisher/share/inorbit_republisher>
-        cd
-       cp ros2_ws/src/inorbit_republisher/launch/sample_data.launch.xml /root/ros2_ws/src/install/inorbit_republisher/share/inorbit_republisher
+closing.
+[INFO] [1734553121.938063653] [rosbag2_storage]: Opened database 'ros2_ws/src/inorbit_republisher/test/sample_data/hardcodedRosbag/rosbag2_2024_12_13-19_33_34_0.db3' for READ_ONLY.
 
-     cp ros2_ws/src/inorbit_republisher/test/sample_data/config.yaml /root/ros2_ws/src/inorbit_republisher/test/sample_data/config/
-/// alternativa a mi launch.xml que no funciona
-1. corro mi rosbag haciendo esto en una terminal:
-        cd /ros2_ws/src/inorbit_republisher/test/sample_data/hardcodedRosbag
-        ros2 bag play rosbag2_2024_12_13-19_33_34_0.db3
-    en otra terminal:
-        source /opt/ros/humble/setup.bash
-        ros2 topic echo my_temperature
-//////
-    Pyuede ser qyue no funcione xq mi rosbag es finito_
- - AttributeError: Attribute 'exec' of type '<class 'str'>' not found in Entity 'node' este es el error
+Files:             ros2_ws/src/inorbit_republisher/test/sample_data/hardcodedRosbag/rosbag2_2024_12_13-19_33_34_0.db3
+Bag size:          24.0 KiB
+Storage id:        sqlite3
+Duration:          16.005861016s
+Start:             Dec 13 2024 19:45:00.085674077 (1734119100.085674077)
+End:               Dec 13 2024 19:45:16.091535093 (1734119116.091535093)
+Messages:          34
+Topic information: Topic: /my_magnetic_field | Type: sensor_msgs/msg/MagneticField | Count: 17 | Serialization Format: cdr
+                   Topic: /my_temperature | Type: sensor_msgs/msg/Temperature | Count: 17 | Serialization Format: cdr
 
+```
 
-///
-Consola de colores:
-        cd 
-        apt update && apt install nano -y
-        nano ~/.bashrc
-    Dentro del bashrc, abajo de todo, copio>
-        force_color_prompt=yes
-    GUardo y cierro el file
-        alias ls='ls --color=auto'
-        source ~/.bashrc
-Para dejarlo predeterminado>
+To validate the node works launch the sample by using the ``sample_data.launch.xml`` launch file and look at ``out`` topic: ``ros2 topic echo my_temperature``.
 
-
-Puede ser que el error se de x altgo de paquetres no instlados o mal instalado...
-
+```bash
+cd ros2_ws/src
+colcon build --packages-select inorbit_republisher --symlink-instal
+source install/setup.bash
+cd
+ros2 launch inorbit_republisher sample_data.launch.xml
+# On a different terminal windows
+source /opt/ros/humble/setup.bash
+$ ros2 topic echo my_temperature
+header:
+  stamp:
+    sec: 0
+    nanosec: 0
+  frame_id: ''
+temperature: 29.068787468933582
+variance: 0.0
+---
+header:
+  stamp:
+    sec: 0
+    nanosec: 0
+  frame_id: ''
+temperature: 22.9644622619558
+variance: 0.0
+---
+```
