@@ -25,15 +25,12 @@
         source /opt/ros/humble/setup.bash
         ros2 topic echo my_temperature
 
-IRi del lunes:
-    Si hardcodeo el publish haciendo en una terminal lo siguiente, cuando hago el echo me funciona de perlas:
-         ros2 topic pub /my_temperature std_msgs/msg/Float64 "data: 25.0"
-Pero es como que el rosbag no lo lee se ve, seguir probrnado, animo animo
-Tengo que crear un docker en humble xq elimine el mio g
 
 Si me tira errores wtf: vuelvo a copiar mi file en root/ros2_ws/src/install/inorbit_republisher/share/inorbit_republisher>
         cd
        cp ros2_ws/src/inorbit_republisher/launch/sample_data.launch.xml /root/ros2_ws/src/install/inorbit_republisher/share/inorbit_republisher
+
+     cp ros2_ws/src/inorbit_republisher/test/sample_data/config.yaml /root/ros2_ws/src/inorbit_republisher/test/sample_data/config/
 /// alternativa a mi launch.xml que no funciona
 1. corro mi rosbag haciendo esto en una terminal:
         cd /ros2_ws/src/inorbit_republisher/test/sample_data/hardcodedRosbag
@@ -44,3 +41,20 @@ Si me tira errores wtf: vuelvo a copiar mi file en root/ros2_ws/src/install/inor
 //////
     Pyuede ser qyue no funcione xq mi rosbag es finito_
  - AttributeError: Attribute 'exec' of type '<class 'str'>' not found in Entity 'node' este es el error
+
+
+///
+Consola de colores:
+        cd 
+        apt update && apt install nano -y
+        nano ~/.bashrc
+    Dentro del bashrc, abajo de todo, copio>
+        force_color_prompt=yes
+    GUardo y cierro el file
+        alias ls='ls --color=auto'
+        source ~/.bashrc
+Para dejarlo predeterminado>
+
+
+Puede ser que el error se de x altgo de paquetres no instlados o mal instalado...
+
