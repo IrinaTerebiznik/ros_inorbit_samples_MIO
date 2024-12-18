@@ -29,7 +29,7 @@ source install/setup.bash
 cd
 ros2 launch inorbit_republisher sample_data.launch.xml
 # On a different terminal windows
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash
 $ ros2 topic echo my_temperature
 header:
   stamp:
