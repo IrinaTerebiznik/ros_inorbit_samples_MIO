@@ -1,6 +1,0 @@
-__pycache__/
-/inorbit_republisher/test/sample_data/build/
-/inorbit_republisher/test/sample_data/hardcodedRosbag/
-/inorbit_republisher/test/sample_data/install/
-/inorbit_republisher/test/sample_data/log/
-.history/
