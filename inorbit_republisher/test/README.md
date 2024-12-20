@@ -1,6 +1,6 @@
 # Sample data for testing
 
-A very simple ``rosbag`` with hardcoded data for smoke testing the transformer node.
+A very simple ``rosbag``  with hardcoded data for smoke testing the transformer node.
 
 ```bash
 $root@7c94d2cf9659:~# ros2 bag info ros2_ws/src/inorbit_republisher/test/sample_data/hardcodedRosbag/rosbag2_2024_12_13-19_33_34_0.db3
