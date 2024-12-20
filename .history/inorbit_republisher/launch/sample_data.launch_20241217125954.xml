@@ -1,0 +1,9 @@
+<launch>
+  <!-- Primer nodo: inorbit_republisher -->
+  <node name="inorbit_republisher" pkg="inorbit_republisher" executable="republisher" output="screen">
+    <param name="config" value="/root/ros2_ws/src/inorbit_republisher/test/sample_data/config/example.yaml" />
+  </node>
+
+  <!-- Segundo nodo: Ejecutar ros2 bag play -->
+<node pkg="tf2_ros" exec="static_transform_publisher" name="map_odom" args="0 0 0 0 0 0 map odom" />
+</launch>

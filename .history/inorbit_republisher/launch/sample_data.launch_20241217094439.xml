@@ -1,0 +1,19 @@
+<launch>
+  <!-- Importar los paquetes necesarios -->
+  <arg name="config_path" default="$(find-pkg-share inorbit_republisher)/test/sample_data/config.yaml" />
+  <arg name="rosbag_path" default="$(find-pkg-share inorbit_republisher)/test/sample_data/hardcodedRosbag" />
+
+  <!-- Primer nodo: inorbit_republisher -->
+  <node name="inorbit_republisher"
+        pkg="inorbit_republisher"
+        exec="republisher">
+    <param name="config" value="$(var config_path)" />
+  </node>
+
+  <!-- Segundo nodo: rosbag2 player -->
+  <node pkg="rosbag2"
+        exec="play"
+        name="player"
+        output="screen"
+        args="-l $(var rosbag_path)" />
+</launch>

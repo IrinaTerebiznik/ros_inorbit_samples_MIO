@@ -1,0 +1,10 @@
+<launch>
+  <node name="inorbit_republisher" pkg="inorbit_republisher" exec="republisher">
+    <param name="config" value="ros2_ws/src/inorbit_republisher/test/sample_data/example.yaml" />
+  </node>
+
+    <!-- Segundo nodo: rosbag2 player -->
+  <node pkg="rosbag2" type="play" name="player" output="screen" args="ros2_ws/src/inorbit_republisher/test/sample_data/hardcodedRosbag"/>
+  </node>
+</launch>
+
