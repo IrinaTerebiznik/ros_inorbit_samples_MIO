@@ -1,0 +1,9 @@
+<launch>
+    <!--Launch republishers node-->
+  <node name="inorbit_republisher" pkg="inorbit_republisher" type="republisher.py">
+    <param name="config" textfile="$(find inorbit_republisher)/config/example.yaml" />
+  </node>
+    <!-- Launch unitest file -->
+    <test test-name="test_republisher" pkg="rostest" type="test_republisher.py" />
+    <param name="use_sim_time" value="true" />
+</launch>
