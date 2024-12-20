@@ -23,5 +23,9 @@ venv/
 *.eggs/
 pip-log.txt
 
-###
+#### Archivos y directorios de Python
+__pycache__/
 .history/
+test/build/
+test/log/
+test/install/
