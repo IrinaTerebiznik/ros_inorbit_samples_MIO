@@ -1,1 +1,27 @@
+# Ignorar el directorio de compilación de catkin
+build/
+devel/
+install/
+
+# Archivos y directorios de Python
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de configuración locales de ROS
+log/
+
+# Archivos de configuración de editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# Dependencias instaladas en un entorno virtual
+venv/
+*.egg-info/
+*.eggs/
+pip-log.txt
+
+###
+.history/
