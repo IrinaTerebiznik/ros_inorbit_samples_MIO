@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# Unit test for a ROS node that republishes messages from /input_topic to /output_topic. 
+# It uses the unittest framework and rostest for testing.
 
 import unittest
 import rospy
@@ -6,29 +8,30 @@ from std_msgs.msg import String
 
 class TestRepublisher(unittest.TestCase):
     def setUp(self):
-        #Inits a ROS node
+        # Method to set up ROS nodes used in this test.
         rospy.init_node('test_republisher', anonymous=True)
-        # Sets a republisher and a subscriber node
         self.test_pub = rospy.Publisher('/input_topic', String, queue_size=10)
         self.received_messages = []
-        # Subscribes to a specific topic
         rospy.Subscriber('/output_topic', String, self.callback)
         rospy.sleep(1)
 
     def callback(self, msg):
-        # Callback method to caught message in  /output_topic
+        # Method to save messages received on /output_topic.
         self.received_messages.append(msg.data)
 
     def test_message_republishing(self):
-        # Publish message in topic
+        # Method to send a message (key=value) to /input_topic and 
+        # check if the republisher correctly adds the prefix (input_to_output=) and sends it to /output_topic.
         test_message = "key=value"
+        expected_message = f"input_to_output={test_message}" 
+        rospy.loginfo(f"Publishing: {test_message} to /input_topic")
         self.test_pub.publish(String(data=test_message))
         rospy.sleep(1)
-        # Verify message reception
-        self.assertIn(test_message, self.received_messages)
+        rospy.loginfo(f"Messages received: {self.received_messages}")
+        self.assertIn(expected_message, self.received_messages)
 
     def test_no_message(self):
-        # Verify no message was inicially recieved 
+        # Method to check that self.received_messages is empty at the start of the test.
         self.assertEqual(len(self.received_messages), 0)
 
 if __name__ == '__main__':

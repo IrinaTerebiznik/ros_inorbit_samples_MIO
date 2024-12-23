@@ -54,6 +54,16 @@ republishers:
       topic: "/inorbit/custom_data/0"
       key: "navsat"
 
+# Añadido para los tópicos input y output
+- topic: "/input_topic"
+  msg_type: "std_msgs/String"
+  mappings:
+  - field: "data"
+    mapping_type: "single_field"
+    out:
+      topic: "/output_topic"
+      key: "input_to_output"
+
 static_publishers:
 - value_from:
     package_version: "rospy"
