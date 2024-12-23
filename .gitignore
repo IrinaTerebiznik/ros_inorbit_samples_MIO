@@ -10,9 +10,6 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Git history
-*.history/
-
 # VS files
 .vscode/
 .idea/
