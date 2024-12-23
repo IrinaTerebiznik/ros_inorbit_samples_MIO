@@ -1,33 +1,25 @@
-#Launch files
-build/
-devel/
-install/
+# Launch files
+*build/
+*devel/
+*install/
+*log/
 
-#Python files 
+# Python files 
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-__pycache__/
-.history/
-test/build/
-test/log/
-test/install/
 
-#Ros config files
-log/
+# Git history
+*.history/
 
-#VS files
+# VS files
 .vscode/
 .idea/
 *.swp
 
-#Dependencies 
+# Dependencies 
 venv/
 *.egg-info/
 *.eggs/
 pip-log.txt
-
-#History folder
-.history/
-

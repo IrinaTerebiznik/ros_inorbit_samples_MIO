@@ -48,4 +48,3 @@ temperature: 22.9644622619558
 variance: 0.0
 ---
 ```
-
