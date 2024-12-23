@@ -30,21 +30,21 @@ cd
 ros2 launch inorbit_republisher sample_data.launch.xml
 # On a different terminal windows
 source /opt/ros/humble/setup.bash
-$ ros2 topic echo my_temperature
-header:
-  stamp:
-    sec: 0
-    nanosec: 0
-  frame_id: ''
-temperature: 29.068787468933582
-variance: 0.0
+ros2 topic echo inorbit/custom_data
+data: my_magnetic_field_x=1.233536973711507
 ---
-header:
-  stamp:
-    sec: 0
-    nanosec: 0
-  frame_id: ''
-temperature: 22.9644622619558
-variance: 0.0
+data: my_magnetic_field_y=6.557449696128689
+---
+data: my_magnetic_field_z=-1.6201375987982995
+---
+data: my_temperature=29.562268283427592
+---
+data: my_magnetic_field_x=-3.071746389301242
+---
+data: my_magnetic_field_y=6.080682955949868
+---
+data: my_magnetic_field_z=3.952488443512035
+---
+data: my_temperature=21.159168808582983
 ---
 ```
