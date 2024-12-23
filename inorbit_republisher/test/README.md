@@ -49,4 +49,3 @@ variance: 0.0
 ---
 ```
 
-@JEEE

@@ -1,31 +1,33 @@
-# Ignorar el directorio de compilación de catkin
+#Launch files
 build/
 devel/
 install/
 
-# Archivos y directorios de Python
+#Python files 
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-
-# Archivos de configuración locales de ROS
-log/
-
-# Archivos de configuración de editor/IDE
-.vscode/
-.idea/
-*.swp
-
-# Dependencias instaladas en un entorno virtual
-venv/
-*.egg-info/
-*.eggs/
-pip-log.txt
-
-#### Archivos y directorios de Python
 __pycache__/
 .history/
 test/build/
 test/log/
 test/install/
+
+#Ros config files
+log/
+
+#VS files
+.vscode/
+.idea/
+*.swp
+
+#Dependencies 
+venv/
+*.egg-info/
+*.eggs/
+pip-log.txt
+
+#History folder
+.history/
+
