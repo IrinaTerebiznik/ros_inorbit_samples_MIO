@@ -1,9 +1,0 @@
-<launch>
-  <node name="inorbit_republisher" pkg="inorbit_republisher" exec="republisher">
-    <param name="config" value="$(dirname)/test/sample_data/config.yaml" />
-  </node>
-</launch>
-
-  <!-- Segundo nodo: rosbag2 player 
-  <node pkg="rosbag2" type="play" name="player" output="screen" args="-l $(find inorbit_republisher)/test/sample_data/hardcodedRosbag"/>
-  </node>-->
