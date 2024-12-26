@@ -1,7 +1,7 @@
 <launch>
   <!-- Launch republisher node -->
   <node name="inorbit_republisher" pkg="inorbit_republisher" type="republisher.py">
-    <param name="config" textfile="$(find inorbit_republisher)/config/example.yaml" />
+    <param name="config" textfile="$(find inorbit_republisher)/config/example_unit_test.yaml" />
   </node>
 
   <!-- Launch unit test -->
