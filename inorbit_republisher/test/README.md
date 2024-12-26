@@ -21,7 +21,22 @@ Topic information: Topic: /my_magnetic_field | Type: sensor_msgs/msg/MagneticFie
 ```
 
 To validate the node works launch the sample by using the ``sample_data.launch.xml`` launch file and look at ``out`` topic: ``ros2 topic echo my_temperature``.
-
+1. **Start ROS2 docker container (optional)**:
+You can run the commands below for building and running the republisher inside a docker container.
+  ```bash
+  docker run -ti --rm \
+  --workdir /root/ros2_ws/ \
+  -v .:/root/ros2_ws/src/inorbit_republisher \
+  osrf/ros:humble-desktop
+  ```
+2. **Build the Workspace**:
+  Ensure the workspace is built and the environment is sourced:
+  ```bash
+  cd ~/ros2_ws
+  rosdep install --from-paths src -y --ignore-src
+  colcon build --packages-select inorbit_republisher --symlink-install
+  ```
+3. **Source and Run the Workspace**:
 ```bash
 cd ros2_ws/src
 colcon build --packages-select inorbit_republisher --symlink-install
