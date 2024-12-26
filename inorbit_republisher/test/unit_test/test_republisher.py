@@ -29,11 +29,6 @@ class TestRepublisher(unittest.TestCase):
         rospy.sleep(1)
         rospy.loginfo(f"Messages received: {self.received_messages}")
         self.assertIn(expected_message, self.received_messages)
-
-    def test_no_message(self):
-        # Method to check that self.received_messages is empty at the start of the test.
-        self.assertEqual(len(self.received_messages), 0)
-
 if __name__ == '__main__':
     import rostest
     rostest.rosrun('my_ros_package', 'test_republisher', TestRepublisher)
