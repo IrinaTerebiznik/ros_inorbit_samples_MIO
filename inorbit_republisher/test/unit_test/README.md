@@ -26,7 +26,7 @@ You can run the commands below for building and running the republisher inside a
   # Install catkin
   apt update && apt install python3-catkin-tools python3-osrf-pycommon -y
   ```
-1. **Build the Workspace**:
+2. **Build the Workspace**:
   Ensure the workspace is built and the environment is sourced:
   ```bash
   cd ~/catkin_ws
@@ -34,7 +34,7 @@ You can run the commands below for building and running the republisher inside a
   catkin clean 
   catkin_build inorbit_republisher --verbose
   ```
-2. **Source and Run the Workspace**:
+3. **Source and Run the Workspace**:
   ```bash
   . ~/catkin_ws/devel/setup.bash
 	rostest inorbit_republisher  test_republisher.test
