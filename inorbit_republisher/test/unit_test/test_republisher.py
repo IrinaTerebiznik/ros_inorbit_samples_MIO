@@ -26,7 +26,11 @@ class TestRepublisher(unittest.TestCase):
         expected_message = f"input_to_output={test_message}" 
         rospy.loginfo(f"Publishing: {test_message} to /input_topic")
         self.test_pub.publish(String(data=test_message))
-        rospy.sleep(1)
+        try:
+            msg = rospy.wait_for_message('/output_topic', String, timeout=5)
+            print(f"Received message: {msg.data}")
+        except rospy.ROSException:
+            print("Timeout exceeded while waiting for a message.")
         rospy.loginfo(f"Messages received: {self.received_messages}")
         self.assertIn(expected_message, self.received_messages)
 if __name__ == '__main__':
