@@ -21,7 +21,7 @@ The test subscribes to `/output_topic` and collects received messages for valida
    Ensure the workspace is built and the environment is sourced:
    ```bash
    cd ~/catkin_ws
-   rosdep install --from-paths ~/catkin_ws/src --ignore-src --rosditro=noetic
+   rosdep install --from-paths ~/catkin_ws/src --ignore-src --rosdistro=noetic
    catkin clean 
    catkin_build inorbit_republisher --verbose
 2. **Source and Run the Workspace**:
