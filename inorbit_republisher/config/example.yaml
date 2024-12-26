@@ -54,7 +54,7 @@ republishers:
       topic: "/inorbit/custom_data/0"
       key: "navsat"
 
-# Añadido para los tópicos input y output
+# Input and Output topics added for unit test purposes
 - topic: "/input_topic"
   msg_type: "std_msgs/String"
   mappings:
