@@ -16,10 +16,11 @@ class TestRepublisher(unittest.TestCase):
 
         # Safe way to Wait for publisher connections to be established
         timeout = rospy.get_time() + 5.0  # Timeout limited to 5 seconds
+        rate = rospy.Rate(5) # ROS Rate at 5Hz
         while self.test_pub.get_num_connections() == 0:
             if rospy.get_time() > timeout:
                 self.fail("Test setup failed: Publisher connection timeout.")
-            rospy.rostime.wallsleep(0.1)  # Yield control to ROS while waiting
+            rate.sleep()
 
     def callback(self, msg):
         # Method to save messages received on /output_topic.
