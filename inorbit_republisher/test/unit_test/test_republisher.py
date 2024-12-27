@@ -8,12 +8,18 @@ from std_msgs.msg import String
 
 class TestRepublisher(unittest.TestCase):
     def setUp(self):
-        # Method to set up ROS nodes used in this test.
+        # Initialize the ROS node for testing
         rospy.init_node('test_republisher', anonymous=True)
         self.test_pub = rospy.Publisher('/input_topic', String, queue_size=10)
         self.received_messages = []
         rospy.Subscriber('/output_topic', String, self.callback)
-        rospy.sleep(1)
+
+        # Safe way to Wait for publisher connections to be established
+        timeout = rospy.get_time() + 5.0  # Timeout limited to 5 seconds
+        while self.test_pub.get_num_connections() == 0:
+            if rospy.get_time() > timeout:
+                self.fail("Test setup failed: Publisher connection timeout.")
+            rospy.rostime.wallsleep(0.1)  # Yield control to ROS while waiting
 
     def callback(self, msg):
         # Method to save messages received on /output_topic.
