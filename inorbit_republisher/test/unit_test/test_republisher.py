@@ -4,6 +4,7 @@
 
 import unittest
 import rospy
+import rostest
 from std_msgs.msg import String
 
 class TestRepublisher(unittest.TestCase):
@@ -40,6 +41,6 @@ class TestRepublisher(unittest.TestCase):
             print("Timeout exceeded while waiting for a message.")
         rospy.loginfo(f"Messages received: {self.received_messages}")
         self.assertIn(expected_message, self.received_messages)
+
 if __name__ == '__main__':
-    import rostest
     rostest.rosrun('my_ros_package', 'test_republisher', TestRepublisher)
