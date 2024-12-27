@@ -35,7 +35,7 @@ You can run the commands below for building and running the republisher inside a
   cd ~/catkin_ws
   rosdep install --from-paths ~/catkin_ws/src --ignore-src --rosdistro=noetic
   catkin clean 
-  catkin_build inorbit_republisher --verbose
+  catkin build inorbit_republisher --verbose
   ```
 3. **Source and Run the Workspace**:
   ```bash
