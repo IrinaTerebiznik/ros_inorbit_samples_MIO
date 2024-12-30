@@ -16,26 +16,23 @@ The unit test is implemented in `test_republisher.py` and uses the `unittest` fr
 The test subscribes to `/output_topic` and collects received messages for validation.
 
 ## Running the Unit Test
-1. **Start ROS2 docker container (optional)**:
+1. **Start ROS 2 docker container (optional)**:
 You can run the commands below for building and running the republisher inside a docker container.
   ```bash
   docker run -ti --rm \
-    --workdir /root/catkin_ws/ \
-    -v .:/root/catkin_ws/src/inorbit_republisher \
-    osrf/ros:noetic-desktop
-  # Install catkin
-  apt update && apt install python3-catkin-tools python3-osrf-pycommon -y
+  --workdir /root/ros2_ws/ \
+  -v .:/root/ros2_ws/src/inorbit_republisher \
+  osrf/ros:foxy-desktop
   ```
 2. **Build the Workspace**:
   Ensure the workspace is built and the environment is sourced:
   ```bash
-  cd ~/catkin_ws
-  rosdep install --from-paths ~/catkin_ws/src --ignore-src --rosdistro=noetic
-  catkin clean 
-  catkin build inorbit_republisher --verbose
+  cd ~/ros2_ws
+  rosdep install --from-paths src -y --ignore-src
+  colcon build --packages-select inorbit_republisher --symlink-install
   ```
 3. **Source and Run the Workspace**:
   ```bash
-  . ~/catkin_ws/devel/setup.bash
-	rostest inorbit_republisher  test_republisher.test
+  source install/local_setup.bash
+	colcon test --packages-select inorbit_republisher
   ```
