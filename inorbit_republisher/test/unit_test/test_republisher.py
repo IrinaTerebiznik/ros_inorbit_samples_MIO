@@ -12,6 +12,18 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import AnyLaunchDescriptionSource
 import launch_testing
 from ament_index_python.packages import get_package_share_directory
+@pytest.mark.launch_test
+def generate_test_description():
+    # Absolute path to the launch file
+    launch_file_path = '/root/ros2_ws/install/inorbit_republisher/share/inorbit_republisher/test_republisher.launch.xml'
+
+    # Include the launch file in the test description
+    return LaunchDescription([
+        IncludeLaunchDescription(
+            AnyLaunchDescriptionSource(launch_file_path)
+        ),
+        launch_testing.actions.ReadyToTest(),
+    ])
 class TestRepublisher(unittest.TestCase):
     """A normal unittest, but under the umbrella of launch_testing."""
 
