@@ -34,5 +34,5 @@ You can run the commands below for building and running the republisher inside a
 3. **Source and Run the Workspace**:
   ```bash
   source install/local_setup.bash
-	colcon test --packages-select inorbit_republisher
+  colcon test --packages-select inorbit_republisher  --event-handlers console_cohesion+ console_direct+
   ```
