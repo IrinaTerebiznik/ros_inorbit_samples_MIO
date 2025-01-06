@@ -11,15 +11,23 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import AnyLaunchDescriptionSource
 import launch_testing
 from ament_index_python.packages import get_package_share_directory
+
+
 @pytest.mark.launch_test
 def generate_test_description():
-    launch_file_path = '/root/ros2_ws/install/inorbit_republisher/share/inorbit_republisher/test_republisher.launch.xml'
+    # Use dynamic path instead of hardcoded absolute path
+    launch_file_path = os.path.join(
+        get_package_share_directory("inorbit_republisher"),
+        "test_republisher.launch.xml"
+    )
     return LaunchDescription([
         IncludeLaunchDescription(
             AnyLaunchDescriptionSource(launch_file_path)
         ),
         launch_testing.actions.ReadyToTest(),
     ])
+
+
 class TestRepublisher(unittest.TestCase):
 
     def setUp(self):
